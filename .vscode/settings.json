@@ -1,0 +1,9 @@
+{
+    "python.venvPath": "~/PyProjects/.env",
+    "python.autoComplete.extraPaths": [
+        "~/PyProjects/.env/lib/python3.8/site-packages",
+        "~/PyProjects/.env/lib/python3.9/site-packages",
+        "~/PyProjects/.env/lib/python3.10/site-packages",
+        "~/PyProjects/.env/lib/python3.11/site-packages"
+    ],
+}
