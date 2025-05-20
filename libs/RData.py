@@ -23,7 +23,7 @@ class RTKB(object):
         Đọc dữ liệu từ file excel và lưu vào dataframe.
         :param path: Đường dẫn đến file excel 
         """
-        tkbs=np.zeros((19, 60), dtype=object)
+        tkbs=np.zeros((19, 60,2), dtype=object)
         pcgd=[]
         self.data = pd.read_excel(path, sheet_name='TKBLop2b', header=0,na_values=['','N/A','missing'], 
                                    usecols='C:U', skiprows=7, nrows=61)
@@ -33,8 +33,8 @@ class RTKB(object):
                 self.lops.append(lop)
             ilop = self.lops.index(lop)
             for tiet in self.data.index:
-                mon=self.convert(self.data[lop][tiet])
-                tkbs[ilop][tiet] = mon
+                mon, gv=self.convert(self.data[lop][tiet])
+                tkbs[ilop][tiet] = [mon,gv]
             elements=np.unique(self.data[lop])
             print(f"Đã đọc {elements} từ lớp {lop}")
         return tkbs
